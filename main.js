@@ -9,5 +9,17 @@ function getComputerChoice() {
     } else {
         computerChoice="Scissor";
     }
-    return computerChoice;
+    return computerChoice.toLowerCase();
 }
+
+
+function getHumanChoice() {
+    userInput = prompt("Select your choice: Rock, paper or scissors").toLowerCase();
+    if (userInput === "rock" || userInput === "paper" || userInput === "scissor") {
+        return userInput;
+    } else {
+        alert("Please write an valid response: Rock, paper or scissor");
+    }
+}
+
+getHumanChoice();
