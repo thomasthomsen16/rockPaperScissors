@@ -1,5 +1,6 @@
-let humanScore = 0;
-let computerScore = 0;
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     let rand;
@@ -26,45 +27,48 @@ function getHumanChoice() {
     }
 }
 
-function playround(humanChoice, computerChoice) {
-    let winner;
-    if (humanChoice == computerChoice) {
-        winner = "tie";
-    } else if (humanChoice === "rock") {
-        if (computerChoice === "paper") {
-            winner = "computer"
-        } else {
-            winner = "human";
-        }
-    } else if (humanChoice === "paper") {
-        if (computerChoice === "scissor") {
-            winner = "computer";
-        } else {
-            winner = "human";
-        }
-    } else if (humanChoice === "scissor") {
-        if (computerChoice === "rock") {
-            winner = "computer";
-        } else {
-            winner = "human"
-        }
-    }
-    
-    if (winner === "human") {
-        console.log("You win!")
-        humanScore++;
-    } else {
-        console.log("You lose")
-        computerScore++;
-    }
-
-    console.log(humanScore);
-    console.log(computerScore);
-
 
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame () {
+    let humanScore = 0;
+    let computerScore = 0;
 
-playround(humanSelection,computerSelection);
+    function playRound(humanChoice, computerChoice) {
+        let winner;
+    
+        // checks who wins
+        if (humanChoice == computerChoice) {
+            winner = "tie";
+        } else if (humanChoice === "rock") {
+            if (computerChoice === "paper") {
+                winner = "computer"
+            } else {
+                winner = "human";
+            }
+        } else if (humanChoice === "paper") {
+            if (computerChoice === "scissor") {
+                winner = "computer";
+            } else {
+                winner = "human";
+            }
+        } else if (humanChoice === "scissor") {
+            if (computerChoice === "rock") {
+                winner = "computer";
+            } else {
+                winner = "human"
+            }
+        }
+    
+        // checks the winner and increments their score by 1 and prints a message to human player
+        if (winner === "human") {
+            console.log("You win!");
+            humanScore++;
+        } else if (winner === "computer") {
+            console.log("You lose");
+            computerScore++;
+        } else {
+            console.log("It is a tie");
+        }
+        console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
+}
