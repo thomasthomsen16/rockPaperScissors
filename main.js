@@ -1,6 +1,4 @@
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     let rand;
@@ -25,9 +23,6 @@ function getHumanChoice() {
     } else {
         alert("Please write an valid response: Rock, paper or scissor");
     }
-}
-
-
 }
 
 function playGame () {
@@ -71,4 +66,22 @@ function playGame () {
             console.log("It is a tie");
         }
         console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
+    }
+
+    //Loops through playRound() five times while updating humanSelection and computerSelection
+    for (i = 1; i < 6; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+
+    if(computerScore>humanScore) {
+        console.log("You lose!");
+    } else if (humanScore>computerScore){
+        console.log("You win");
+    } else {
+        console.log(`It's a tie`);
+    }
 }
+
+playGame();
