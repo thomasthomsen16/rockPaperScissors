@@ -1,4 +1,6 @@
-
+document.getElementById("btnRock").addEventListener("click",playRound);
+document.getElementById("btnPaper").addEventListener("click",playRound);
+document.getElementById("btnScissor").addEventListener("click",playRound);
 
 function getComputerChoice() {
     let rand;
@@ -25,7 +27,6 @@ function getHumanChoice() {
     }
 }
 
-function playGame () {
     let humanScore = 0;
     let computerScore = 0;
 
@@ -70,9 +71,9 @@ function playGame () {
 
     // //Loops through playRound() five times while updating humanSelection and computerSelection
     // for (i = 1; i < 6; i++) {
-    //     const humanSelection = getHumanChoice();
-    //     const computerSelection = getComputerChoice();
-    //     playRound(humanSelection, computerSelection);
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
     // }
 
 
@@ -84,6 +85,3 @@ function playGame () {
     } else {
         console.log(`It's a tie`);
     }
-}
-
-playGame();
