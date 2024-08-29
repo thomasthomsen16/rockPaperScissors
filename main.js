@@ -64,8 +64,21 @@ function getComputerChoice() {
             console.log("It is a tie this round");
         }
         console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
-    
+   
+    // Check if anyone has won the game
+    if(computerScore >= 5 || humanScore >= 5) {
+        if(computerScore > humanScore) {
+            console.log("You lose the game!");
+        } else {
+            console.log("You win the game!");
+        }
+        // Reset scores for a new game
+        computerScore = 0;
+        humanScore = 0;
     }
+}
+
+
 
 
 
