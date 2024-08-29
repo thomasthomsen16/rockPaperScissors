@@ -1,6 +1,12 @@
-document.getElementById("btnRock").addEventListener("click",playRound);
-document.getElementById("btnPaper").addEventListener("click",playRound);
-document.getElementById("btnScissor").addEventListener("click",playRound);
+document.getElementById("btnRock").addEventListener("click", function() {
+    playRound("rock");
+});
+document.getElementById("btnPaper").addEventListener("click", function() {
+    playRound("paper");
+});
+document.getElementById("btnScissor").addEventListener("click", function() {
+    playRound("scissor");
+});
 
 function getComputerChoice() {
     let rand;
@@ -17,21 +23,12 @@ function getComputerChoice() {
 }
 
 
-function getHumanChoice() {
-    userInput = prompt("Select your choice: Rock, paper or scissors").toLowerCase();
-    // Checks to see if input is valid. Otherwise alert user
-    if (userInput === "rock" || userInput === "paper" || userInput === "scissor") {
-        return userInput;
-    } else {
-        alert("Please write an valid response: Rock, paper or scissor");
-    }
-}
-
     let humanScore = 0;
     let computerScore = 0;
 
-    function playRound(humanChoice, computerChoice) {
+    function playRound(humanChoice) {
         let winner;
+        let computerChoice = getComputerChoice();
     
         // checks who wins
         if (humanChoice == computerChoice) {
@@ -67,21 +64,8 @@ function getHumanChoice() {
             console.log("It is a tie this round");
         }
         console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
+    
     }
 
-    // //Loops through playRound() five times while updating humanSelection and computerSelection
-    // for (i = 1; i < 6; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    // }
 
 
-// Checks score after the after round and prints the winner
-    if(computerScore>humanScore) {
-        console.log("You lose!");
-    } else if (humanScore>computerScore){
-        console.log("You win");
-    } else {
-        console.log(`It's a tie`);
-    }
