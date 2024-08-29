@@ -57,24 +57,26 @@ function playGame () {
     
         // checks the winner and increments their score by 1 and prints a message to human player
         if (winner === "human") {
-            console.log("You win!");
+            console.log("You win this round!");
             humanScore++;
         } else if (winner === "computer") {
-            console.log("You lose");
+            console.log("You lose this round");
             computerScore++;
         } else {
-            console.log("It is a tie");
+            console.log("It is a tie this round");
         }
         console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
     }
 
-    //Loops through playRound() five times while updating humanSelection and computerSelection
-    for (i = 1; i < 6; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
+    // //Loops through playRound() five times while updating humanSelection and computerSelection
+    // for (i = 1; i < 6; i++) {
+    //     const humanSelection = getHumanChoice();
+    //     const computerSelection = getComputerChoice();
+    //     playRound(humanSelection, computerSelection);
+    // }
 
+
+// Checks score after the after round and prints the winner
     if(computerScore>humanScore) {
         console.log("You lose!");
     } else if (humanScore>computerScore){
