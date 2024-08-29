@@ -8,6 +8,8 @@ document.getElementById("btnScissor").addEventListener("click", function() {
     playRound("scissor");
 });
 
+
+
 function getComputerChoice() {
     let rand;
     let computerChoice;
@@ -29,6 +31,9 @@ function getComputerChoice() {
     function playRound(humanChoice) {
         let winner;
         let computerChoice = getComputerChoice();
+        const score = document.getElementById("Score");
+        const message = document.getElementById("Message");
+        const winnerMessage = document.getElementById("winnerMessage");
     
         // checks who wins
         if (humanChoice == computerChoice) {
@@ -55,22 +60,22 @@ function getComputerChoice() {
     
         // checks the winner and increments their score by 1 and prints a message to human player
         if (winner === "human") {
-            console.log("You win this round!");
+            message.textContent = "You win this round"
             humanScore++;
         } else if (winner === "computer") {
-            console.log("You lose this round");
+            message.textContent = "You lose this round"
             computerScore++;
         } else {
-            console.log("It is a tie this round");
+            message.textContent = "It is a tie this round"
         }
-        console.log(`Human: ${humanScore}, Computer: ${computerScore}`);
+        score.textContent = `Human: ${humanScore}, Computer: ${computerScore}`; 
    
     // Check if anyone has won the game
     if(computerScore >= 5 || humanScore >= 5) {
         if(computerScore > humanScore) {
-            console.log("You lose the game!");
+            winnerMessage.textContent = "You lose the game!"
         } else {
-            console.log("You win the game!");
+            winnerMessage.textContent = "You win this game!"
         }
         // Reset scores for a new game
         computerScore = 0;
